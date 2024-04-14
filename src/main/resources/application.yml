@@ -5,6 +5,7 @@ spring:
     url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=wreczyck;encrypt=false;
   liquibase:
     change-log: classpath:db/changelog/changelog-master.json
-#  jpa:
-#    hibernate:
-#      ddl-auto: create-drop
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

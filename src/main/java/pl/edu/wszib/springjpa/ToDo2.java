@@ -1,19 +1,21 @@
-package pl.edu.wszib.springjpa.model;
+package pl.edu.wszib.springjpa;
 
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import pl.edu.wszib.springjpa.model.ToDoStatus;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Entity
-@Table(name = "todo")
-public class ToDo {
+@Table(name = "todo2")
+public class ToDo2 {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id;
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID id;
   @Column(nullable = false)
   private String zadanie;
   @Enumerated(EnumType.STRING)
@@ -27,11 +29,11 @@ public class ToDo {
   @UpdateTimestamp
   private Instant updatedAt;
 
-  public Integer getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Integer integer) {
+  public void setId(UUID integer) {
     this.id = integer;
   }
 

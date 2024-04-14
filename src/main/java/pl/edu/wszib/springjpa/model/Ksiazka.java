@@ -1,15 +1,26 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.Instant;
 
+@Entity
 public class Ksiazka {
 
+  @Id
+  @GeneratedValue
   private Integer id;
   private String nazwa;
   private String isbn;
   private String gatunek;
 
+  @CreationTimestamp
   private Instant createdAt;
+  @UpdateTimestamp
   private Instant updatedAt;
 
   public Integer getId() {

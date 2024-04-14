@@ -1,8 +1,14 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.*;
+
 import java.time.Instant;
 
+@Entity
 public class Praca {
+
+  @Id
+  @GeneratedValue
   private long id;
   private String nazwaFirmy;
   private String pracaOd;
@@ -10,6 +16,10 @@ public class Praca {
   private String stanowisko;
   private Instant createdAt;
   private Instant updatedAt;
+
+  @ManyToOne
+  @JoinColumn
+  private CV cv;
 
   public long getId() {
     return id;
@@ -65,5 +75,13 @@ public class Praca {
 
   public void setUpdatedAt(Instant updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+  public CV getCv() {
+    return cv;
+  }
+
+  public void setCv(CV cv) {
+    this.cv = cv;
   }
 }
